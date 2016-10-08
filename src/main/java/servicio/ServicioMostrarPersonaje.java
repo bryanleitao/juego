@@ -1,4 +1,4 @@
-package com.empleartec.juego.juego;
+package servicio;
 
 public class ServicioMostrarPersonaje {
 
