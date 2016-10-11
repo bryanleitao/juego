@@ -3,6 +3,8 @@ import modelo.Personaje;
 import modelo.Tipo;
 
 public class ServicioMostrarPersonaje implements IServicioMostrarPersonaje{
+	
+	
 
 	public void Listar() {
 		// TODO Auto-generated method stub
