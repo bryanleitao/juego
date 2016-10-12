@@ -1,7 +1,7 @@
 package modelo;
 
 public enum Tipo {
-	HEROE ("HEROE"),
+	SUPERHEROE ("SUPERHEROE"),
 	VILLANO ("VILLANO");
 	
 	private String descripcion;

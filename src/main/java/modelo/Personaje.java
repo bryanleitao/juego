@@ -16,6 +16,11 @@ public class Personaje {
 	lo copie de otros codigos, pero ni idea si funciona asi*/	
 	private Map<String,Integer> cualidades = new HashMap<String, Integer>();
 	
+	public Personaje(String nombre,Tipo tipo){
+		this.nombre = nombre;
+		this.tipo = tipo;
+	}
+	
 	
 	//metodos
 	
