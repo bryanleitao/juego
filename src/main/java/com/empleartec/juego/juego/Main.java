@@ -1,10 +1,16 @@
 package com.empleartec.juego.juego;
 
-public class Main {
+import servicio.ServicioMostrarPersonaje;
 
+public class Main {
+	
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		//holamundo
+		
+		ServicioMostrarPersonaje SMP = new ServicioMostrarPersonaje(); 
+		
+		SMP.Listar();
+		
 	}
 
 }

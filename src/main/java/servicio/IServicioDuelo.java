@@ -1,5 +1,8 @@
 package servicio;
 
+import modelo.Personaje;
+import modelo.Player;
+
 public interface IServicioDuelo {
 	
 	public void MostrarCualidad ();

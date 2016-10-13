@@ -8,7 +8,7 @@ public interface IServicioMostrarPersonaje {
 	
 	
 	
-	public ArrayList<Personaje> Listar ();
+	public void Listar ();
 	
 	public void Listar (Tipo value);
 	

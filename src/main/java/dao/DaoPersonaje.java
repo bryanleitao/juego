@@ -10,6 +10,8 @@ public class DaoPersonaje {
 	private ArrayList<Personaje> personajes;
 	
 	public DaoPersonaje(){
+		personajes = new ArrayList<Personaje>();
+		
 		Personaje nuevoPersonaje = new Personaje("Batman",Tipo.SUPERHEROE);
 		nuevoPersonaje.agregarCualidad("Fuerza", 50);
 		nuevoPersonaje.agregarCualidad("Velocidad", 150);
@@ -45,7 +47,7 @@ public class DaoPersonaje {
 		
 	}
 	
-	public ArrayList<Personaje> TraerPersaonjes(){
+	public ArrayList<Personaje> TraerPersonajes(){
 		
 		return personajes;
 	}

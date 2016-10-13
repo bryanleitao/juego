@@ -38,14 +38,7 @@ public class Personaje {
 			System.out.println("No existe la cualidad: " + nombre);
 		}
 	}
-	public void imprimirCualidad() {
-		Iterator<Entry<String, Integer>> it = cualidades.entrySet().iterator();
-		Entry<String, Integer> cualidades;
-		while (it.hasNext()) {
-			cualidades = it.next();
-			System.out.println(cualidades.getKey() + " - : " + cualidades.getValue());
-		}
-	}
+
 	//propiedades
 	public Tipo getTipo() {
 		return tipo;
@@ -59,10 +52,10 @@ public class Personaje {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	private Map<String,Integer> getCualidades() {
+	public Map<String,Integer> getCualidades() {
 		return cualidades;
 	}
-	private void setCualidades(Map<String,Integer> cualidades) {
+	public void setCualidades(Map<String,Integer> cualidades) {
 		this.cualidades = cualidades;
 	}
 	
