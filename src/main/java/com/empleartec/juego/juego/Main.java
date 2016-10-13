@@ -9,6 +9,7 @@ public class Main {
 		
 		ServicioMostrarPersonaje SMP = new ServicioMostrarPersonaje(); 
 		
+		//descomentar para probar y mostrar todos los personajes
 		SMP.Listar();
 		
 	}

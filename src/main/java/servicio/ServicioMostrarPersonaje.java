@@ -31,14 +31,6 @@ public class ServicioMostrarPersonaje implements IServicioMostrarPersonaje{
 		}
 	}
 
-	/*Iterator<Entry<Long, Double>> it = productos.entrySet().iterator();
-	Entry<Long, Double> producto;
-	while (it.hasNext()) {
-		producto = it.next();
-		System.out.println("Producto: " + producto.getKey() 
-				+ " - Precio: " + producto.getValue());
-	}
-	*/
 	public void Listar(Tipo value) {
 		// TODO Auto-generated method stub
 		
