@@ -23,9 +23,9 @@ public class ServicioDuelo implements IServicioDuelo{
 		System.out.println("Puntaje Jugador 1: "+ player1.getPuntaje() + "  //  Puntaje Jugador 2: "+ player2.getPuntaje());
 	}
 
-	public void ComparaCualidad(Personaje personajeA, Personaje personajeB) {
+	public void ComparaCualidad(int valorCualidadA, int valorCualidadB) {
 		// TODO Auto-generated method stub
-		//Hay que ver como se implementa este metodo
+		
 	}
 
 }
