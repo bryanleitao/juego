@@ -36,6 +36,21 @@ public class ServicioMostrarPersonaje implements IServicioMostrarPersonaje{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public Personaje TraerPersonaje(String nombre){
+		return DP.TraerPersonaje(nombre);
+	}
+	
+	public void MostrarPersonaje(Personaje p){
+		System.out.println(p.getNombre() + " :" + p.getTipo());
+		
+		Iterator<Entry<String, Integer>> it = p.getCualidades().entrySet().iterator();
+		Entry<String, Integer> cualidades;
+		while (it.hasNext()) {
+			cualidades = it.next();
+			System.out.println("\t " + cualidades.getKey() + " - : " + cualidades.getValue());
+		}
+	}
 
 	public void Crear(Personaje personaje) {
 		

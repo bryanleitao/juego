@@ -12,6 +12,8 @@ public class Main {
 		//descomentar para probar y mostrar todos los personajes
 		SMP.Listar();
 		
+		SMP.MostrarPersonaje(SMP.TraerPersonaje("Batman"));
+		
 	}
 
 }

@@ -11,4 +11,6 @@ public interface IServicioMostrarPersonaje {
 	public void Listar (Tipo value);
 	
 	public void Crear (Personaje personaje);
+	
+	public Personaje TraerPersonaje(String nombre);
 }
