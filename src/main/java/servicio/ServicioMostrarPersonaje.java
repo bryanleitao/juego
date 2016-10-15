@@ -1,6 +1,7 @@
 package servicio;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
@@ -10,7 +11,7 @@ import modelo.Tipo;
 
 public class ServicioMostrarPersonaje implements IServicioMostrarPersonaje{
 	
-	private ArrayList<Personaje> personajes;
+	private List<Personaje> personajes;
 	
 	private DaoPersonaje DP = new DaoPersonaje();
 	
