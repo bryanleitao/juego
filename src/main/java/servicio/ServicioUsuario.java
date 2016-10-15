@@ -1,5 +1,6 @@
 package servicio;
 
+<<<<<<< HEAD
 import java.util.Scanner;
 
 import modelo.Personaje;
@@ -23,4 +24,8 @@ public class ServicioUsuario implements IServicioUsuario {
 		
 	}
 
+=======
+public class ServicioUsuario {
+	
+>>>>>>> 46eebfd6da6eb1f92c5c97e03cc61a689b94576f
 }

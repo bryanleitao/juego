@@ -1,13 +1,14 @@
 package dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import modelo.Personaje;
 import modelo.Tipo;
 
 public class DaoPersonaje {
 
-	private ArrayList<Personaje> personajes;
+	private List<Personaje> personajes;
 	
 	public DaoPersonaje(){
 		personajes = new ArrayList<Personaje>();
@@ -103,7 +104,7 @@ public class DaoPersonaje {
 		
 	}
 	
-	public ArrayList<Personaje> TraerPersonajes(){
+	public List<Personaje> TraerPersonajes(){
 		
 		return personajes;
 	}
