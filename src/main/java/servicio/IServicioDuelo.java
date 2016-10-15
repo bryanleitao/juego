@@ -9,6 +9,6 @@ public interface IServicioDuelo {
 	
 	public void MostrarPuntaje (Jugador player1, Jugador player2);
 	//Hay que ver como se implementa este metodo
-	public void ComparaCualidad (Personaje personajeA, Personaje personajeB);
+	public void ComparaCualidad (int valorCualidadA, int valorCualidadB);
 
 }
