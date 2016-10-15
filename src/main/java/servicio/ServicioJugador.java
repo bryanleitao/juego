@@ -3,11 +3,11 @@ package servicio;
 import java.util.Scanner;
 
 import modelo.Personaje;
-import modelo.Player;
+import modelo.Jugador;
 import modelo.Tipo;
 import servicio.ServicioMostrarPersonaje;
 
-public class ServicioUsuario implements IServicioUsuario {
+public class ServicioJugador implements IServicioUsuario {
 
 	
 	public void setNickname() {

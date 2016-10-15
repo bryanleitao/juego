@@ -1,7 +1,7 @@
 package servicio;
 
 import modelo.Personaje;
-import modelo.Player;
+import modelo.Jugador;
 import modelo.Tipo;
 
 public interface IServicioUsuario {

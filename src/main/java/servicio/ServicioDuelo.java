@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import modelo.Personaje;
-import modelo.Player;
+import modelo.Jugador;
 
 public class ServicioDuelo implements IServicioDuelo{
 
@@ -19,7 +19,7 @@ public class ServicioDuelo implements IServicioDuelo{
 		
 	}
 
-	public void MostrarPuntaje(Player player1, Player player2) {
+	public void MostrarPuntaje(Jugador player1, Jugador player2) {
 		System.out.println("Puntaje Jugador 1: "+ player1.getPuntaje() + "  //  Puntaje Jugador 2: "+ player2.getPuntaje());
 	}
 

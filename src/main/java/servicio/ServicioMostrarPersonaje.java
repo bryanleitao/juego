@@ -47,6 +47,19 @@ public class ServicioMostrarPersonaje implements IServicioMostrarPersonaje{
 			
 		}
 	}
+// paso por parametro el personaje
+	public int traerValorCualidad (Personaje p,String c){
+		
+		Iterator<Entry<String, Integer>> it = p.getCualidades().entrySet().iterator();
+		Entry<String, Integer> cualidades;
+		while (it.hasNext()) {
+			cualidades = it.next();
+			if(cualidades.getKey() == c)
+				return cualidades.getValue();
+		}
+		
+		return -1;
+	}
 	
 	//traigo el personaje q busco por nombre q le paso por parametro
 	public Personaje TraerPersonaje(String nombre){

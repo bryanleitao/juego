@@ -2,7 +2,7 @@ package modelo;
 
 import java.util.ArrayList;
 
-public class Player {
+public class Jugador {
 	private String nickname;
 	private int puntaje;
 	private ArrayList personajeSeleccionado;
