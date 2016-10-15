@@ -10,13 +10,15 @@ public class Main {
 		
 		ServicioMostrarPersonaje SMP = new ServicioMostrarPersonaje(); 
 		
+		
+		//seleccione tipo de personaje
 		Tipo [] tipos = Tipo.values();
 		
 		for(Tipo t : tipos){
 			System.out.println(t);
 		}
 		
-		SMP.Listar(Tipo.SUPERHEROE);
+		SMP.Listar();
 		
 		//descomentar para probar y mostrar todos los personajes
 //		SMP.Listar();
