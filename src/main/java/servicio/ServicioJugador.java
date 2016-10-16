@@ -14,8 +14,8 @@ public class ServicioJugador implements IServicioUsuario {
 			
 	}
 	
-	public void elegirPersonaje() {
-				
+	public void elegirPersonaje(Jugador j, Personaje p) {
+		
 	}
 
 	public void modificarPuntaje() {

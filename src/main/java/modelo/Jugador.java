@@ -1,12 +1,18 @@
 package modelo;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class Jugador {
 	private String nickname;
 	private int puntaje;
-	private ArrayList personajeSeleccionado;
+	private List personajeSeleccionado;
 	
+	public List getPersonajeSeleccionado() {
+		return personajeSeleccionado;
+	}
+	public void setPersonajeSeleccionado(List personajeSeleccionado) {
+		this.personajeSeleccionado = personajeSeleccionado;
+	}
 	public String getNickname() {
 		return nickname;
 	}

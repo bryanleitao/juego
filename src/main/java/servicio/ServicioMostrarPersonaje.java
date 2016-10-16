@@ -19,7 +19,7 @@ public class ServicioMostrarPersonaje implements IServicioMostrarPersonaje{
 		personajes = DP.TraerPersonajes();
 	}
 	
-	public void Listar() {
+	public void listar() {
 		for(Personaje p: DP.TraerPersonajes()){
 			System.out.println(p.getNombre() + " :" + p.getTipo());
 			
@@ -32,7 +32,7 @@ public class ServicioMostrarPersonaje implements IServicioMostrarPersonaje{
 		}
 	}
 
-	public void Listar(Tipo value) {
+	public void listar(Tipo value) {
 		for(Personaje p: DP.TraerPersonajes()){
 			if(p.getTipo() == value){
 				System.out.println(p.getNombre() + " :" + p.getTipo());
@@ -62,12 +62,12 @@ public class ServicioMostrarPersonaje implements IServicioMostrarPersonaje{
 	}
 	
 	//traigo el personaje q busco por nombre q le paso por parametro
-	public Personaje TraerPersonaje(String nombre){
+	public Personaje traerPersonaje(String nombre){
 		return DP.TraerPersonaje(nombre);
 	}
 	
 	//paso por parametro el objeto personaje y lo muestro: nombre, tipo y cualidades
-	public void MostrarPersonaje(Personaje p){
+	public void mostrarPersonaje(Personaje p){
 		System.out.println(p.getNombre() + " :" + p.getTipo());
 		
 		Iterator<Entry<String, Integer>> it = p.getCualidades().entrySet().iterator();
@@ -78,7 +78,7 @@ public class ServicioMostrarPersonaje implements IServicioMostrarPersonaje{
 		}
 	}
 
-	public void Crear(Personaje personaje) {
+	public void crear(Personaje personaje) {
 		
 		DP.AgregarPersonaje(personaje);
 	}

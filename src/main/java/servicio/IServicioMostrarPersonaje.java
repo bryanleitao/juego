@@ -6,11 +6,11 @@ import modelo.Tipo;
 
 public interface IServicioMostrarPersonaje {
 	
-	public void Listar ();
+	public void listar ();
 	
-	public void Listar (Tipo value);
+	public void listar (Tipo value);
 	
-	public void Crear (Personaje personaje);
+	public void crear (Personaje personaje);
 	
-	public Personaje TraerPersonaje(String nombre);
+	public Personaje traerPersonaje(String nombre);
 }
