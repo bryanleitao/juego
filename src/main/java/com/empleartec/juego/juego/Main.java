@@ -1,6 +1,6 @@
 package com.empleartec.juego.juego;
 
-import servicio.ServicioMostrarPersonaje;
+import servicio.ServicioPersonaje;
 import modelo.Tipo;
 
 public class Main {
@@ -8,18 +8,17 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		ServicioMostrarPersonaje SMP = new ServicioMostrarPersonaje(); 
+		ServicioPersonaje SP = new ServicioPersonaje(); 
 		
 		
 		//seleccione tipo de personaje
-		Tipo [] tipos = Tipo.values();
-		
-		for(Tipo t : tipos){
-			System.out.println(t);
-		}
-		
-		SMP.Listar();
-		
+//		Tipo [] tipos = Tipo.values();
+//		
+//		for(Tipo t : tipos){
+//			System.out.println(t);
+//		}
+//		
+//		
 		//descomentar para probar y mostrar todos los personajes
 //		SMP.Listar();
 //		

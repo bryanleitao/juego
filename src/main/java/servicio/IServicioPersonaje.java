@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import modelo.Personaje;
 import modelo.Tipo;
 
-public interface IServicioMostrarPersonaje {
+public interface IServicioPersonaje {
 	
 	public void listar ();
 	

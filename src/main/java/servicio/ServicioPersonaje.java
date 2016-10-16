@@ -9,13 +9,13 @@ import dao.DaoPersonaje;
 import modelo.Personaje;
 import modelo.Tipo;
 
-public class ServicioMostrarPersonaje implements IServicioMostrarPersonaje{
+public class ServicioPersonaje implements IServicioPersonaje{
 	
 	private List<Personaje> personajes;
 	
 	private DaoPersonaje DP = new DaoPersonaje();
 	
-	public ServicioMostrarPersonaje(){
+	public ServicioPersonaje(){
 		personajes = DP.TraerPersonajes();
 	}
 	

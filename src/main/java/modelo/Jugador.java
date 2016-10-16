@@ -1,17 +1,23 @@
 package modelo;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Jugador {
 	private String nickname;
 	private int puntaje;
-	private List personajeSeleccionado;
+	private ArrayList<Personaje> personajes;
 	
-	public List getPersonajeSeleccionado() {
-		return personajeSeleccionado;
+	public Jugador(){
+		this.nickname = "";
+		this.puntaje = 0;
+		this.personajes = new ArrayList<Personaje>();
 	}
-	public void setPersonajeSeleccionado(List personajeSeleccionado) {
-		this.personajeSeleccionado = personajeSeleccionado;
+	
+	public ArrayList<Personaje> getPersonajes() {
+		return personajes;
+	}
+	public void setPersonajes(ArrayList<Personaje> personajes) {
+		this.personajes = personajes;
 	}
 	public String getNickname() {
 		return nickname;
