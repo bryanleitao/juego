@@ -1,14 +1,14 @@
 package com.empleartec.juego.juego;
 
-import servicio.ServicioPersonaje;
-import modelo.Tipo;
+import servicio.ServicesCharacter;
+import modelo.Type;
 
 public class Main {
 	
 	
 	public static void main(String[] args) {
 		
-		ServicioPersonaje SP = new ServicioPersonaje(); 
+		ServicesCharacter SP = new ServicesCharacter(); 
 		
 		
 		//seleccione tipo de personaje
