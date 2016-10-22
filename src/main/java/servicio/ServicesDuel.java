@@ -43,4 +43,13 @@ public class ServicesDuel implements IServicesDuel{
 		
 	}
 
+	public void incrementScore(Player player) {
+		int newScore=0;
+		
+		newScore=player.getScore()+1;
+		
+		player.setScore(newScore);
+		
+	}
+
 }
