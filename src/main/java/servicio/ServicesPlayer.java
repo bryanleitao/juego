@@ -13,7 +13,15 @@ import servicio.ServicesCharacter;
 
 public class ServicesPlayer implements IServicesPlayer {
 
+	List<Player> players = new ArrayList<>();
 	
+	public void addPlayer(Player p){
+		players.add(p);
+	}
+	
+	public List<Player> getPlayers(){
+		return this.players;
+	}
 	public void setNickname(Player j,String nombre) {
 			j.setNickname(nombre);
 	}

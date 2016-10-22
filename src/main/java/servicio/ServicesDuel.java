@@ -25,21 +25,22 @@ public class ServicesDuel implements IServicesDuel{
 
 	public int compareQualitie(int qualitieValueA, int qualitieValueB) {
 		
+		int i = -1;
 		// Si devuelve 0 es empate, 1 gano player A, 2 gano player B
 		
 		if (qualitieValueA==qualitieValueB){
-			return 0;
+			i = 0;
 		}
 		
 		if (qualitieValueA>qualitieValueB){
-			return 1;
+			i =  1;
 		}
 		
 		if (qualitieValueA<qualitieValueB){
-			return 2;
+			i = 2;
 		}
 		
-		return -1;
+		return i;
 		
 	}
 
