@@ -11,6 +11,7 @@ public class Player {
 	public Player(){
 		this.nickname = "";
 		this.score = 0;
+		this.typePlayer = null;
 		this.characters = new ArrayList<Character>();
 	}
 	
