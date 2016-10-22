@@ -9,6 +9,6 @@ public interface IServicesDuel {
 	
 	public void showScore(Player player1, Player player2);
 	//Hay que ver como se implementa este metodo
-	public void compareQualitie(int qualitieValueA, int qualitieValueB);
+	public int compareQualitie(int qualitieValueA, int qualitieValueB);
 
 }
