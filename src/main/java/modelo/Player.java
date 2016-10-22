@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Player {
 	private String nickname;
 	private int score;
+	private Type typePlayer;
 	private ArrayList<Character> characters;
 	
 	public Player(){
@@ -30,6 +31,14 @@ public class Player {
 	}
 	public void setScore(int score) {
 		this.score = score;
+	}
+
+	public Type getTypePlayer() {
+		return typePlayer;
+	}
+
+	public void setTypePlayer(Type typePlayer) {
+		this.typePlayer = typePlayer;
 	}
 
 }
