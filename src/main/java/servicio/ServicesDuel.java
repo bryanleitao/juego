@@ -23,8 +23,33 @@ public class ServicesDuel implements IServicesDuel{
 		System.out.println("Puntaje Jugador 1: "+ player1.getScore() + "  //  Puntaje Jugador 2: "+ player2.getScore());
 	}
 
-	public void compareQualitie(int qualitieValueA, int qualitieValueB) {
-		// TODO Auto-generated method stub
+	public int compareQualitie(int qualitieValueA, int qualitieValueB) {
+		
+		int i = -1;
+		// Si devuelve 0 es empate, 1 gano player A, 2 gano player B
+		
+		if (qualitieValueA==qualitieValueB){
+			i = 0;
+		}
+		
+		if (qualitieValueA>qualitieValueB){
+			i =  1;
+		}
+		
+		if (qualitieValueA<qualitieValueB){
+			i = 2;
+		}
+		
+		return i;
+		
+	}
+
+	public void incrementScore(Player player) {
+		int newScore=0;
+		
+		newScore=player.getScore()+1;
+		
+		player.setScore(newScore);
 		
 	}
 
