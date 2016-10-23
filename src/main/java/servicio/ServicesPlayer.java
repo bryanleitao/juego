@@ -22,6 +22,7 @@ public class ServicesPlayer implements IServicesPlayer {
 	public List<Player> getPlayers(){
 		return this.players;
 	}
+	
 	public void setNickname(Player j,String nombre) {
 			j.setNickname(nombre);
 	}
@@ -48,6 +49,5 @@ public class ServicesPlayer implements IServicesPlayer {
 				System.out.println("\t " + qualities.getKey() + " - : " + qualities.getValue());
 			}
 		}
-		
 	}
 }

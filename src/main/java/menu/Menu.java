@@ -35,7 +35,7 @@ public class Menu {
 	}
 
 	public void menuCharacters(Player p) {
-
+		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Seleccione los personaje con el que desea jugar");
 		String character = sc.nextLine();
