@@ -33,9 +33,10 @@ public class ServicesCharacter implements IServicesCharacter{
 	}
 
 	public void toList(Type value) {
+		int i = 1;
 		for(Character p: DP.getCharacters()){
 			if(p.getType() == value){
-				System.out.println(p.getName() + " :" + p.getType());
+				System.out.println(i++ + ") " + p.getName() + " :" + p.getType());
 				
 				Iterator<Entry<String, Integer>> it = p.getQualities().entrySet().iterator();
 				Entry<String, Integer> qualities;

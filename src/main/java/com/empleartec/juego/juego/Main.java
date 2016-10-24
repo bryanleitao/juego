@@ -34,11 +34,10 @@ public class Main {
 
 			m.menuPlayer(p);
 			m.menuType(p);
-			m.menuCharacters(p);
+			m.menuCharacters(p, SC, SP);
+
 		}
 
-		
-		System.out.println( );
 
 	}
 
