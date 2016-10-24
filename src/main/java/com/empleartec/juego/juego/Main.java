@@ -35,12 +35,6 @@ public class Main {
 			m.menuPlayer(p);
 			m.menuType(p);
 			m.menuCharacters(p);
-			
-			SP.addCharacter(p, SC.getCharacter("Batman"));
-			SP.addCharacter(p, SC.getCharacter("Wonder Woman"));
-			SP.addCharacter(p, SC.getCharacter("Aquaman"));
-			
-			SP.addPlayer(p);
 		}
 
 		

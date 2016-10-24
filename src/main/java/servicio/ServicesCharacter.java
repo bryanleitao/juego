@@ -66,6 +66,11 @@ public class ServicesCharacter implements IServicesCharacter{
 		return DP.getCharacter(name);
 	}
 	
+	//traigo el personaje q busco por index que le paso por parámetro y el tipo (Flor)
+	public Character getCharacterByIndex(int index, Type type) {
+		return DP.getCharacterByIndex(index, type);
+	}
+	
 	//paso por parametro el objeto personaje y lo muestro: nombre, tipo y cualidades
 	public void showCharacter(Character p){
 		System.out.println(p.getName() + " :" + p.getType());
@@ -82,6 +87,7 @@ public class ServicesCharacter implements IServicesCharacter{
 		
 		DP.addCharacter(character);
 	}
-
+	
+	
 }
 

@@ -115,7 +115,21 @@ public class DaoCharacter {
 				return aCharacter;
 			}
 		}
-		return null;	
+		return null;
+	}
+	//agregue estos dos metodos
+	public List<Character> getCharactersOfType(Type type) {
+		List<Character> charactersOfType = new ArrayList<Character>();
+		for (Character aCharacter: characters) {
+			if (aCharacter.getType() == type) {
+				charactersOfType.add(aCharacter);
+			}
+		}
+		return charactersOfType;
+	}
+	
+	public Character getCharacterByIndex(int index, Type type) {
+		return this.getCharactersOfType(type).get(index);
 	}
 	
 }
