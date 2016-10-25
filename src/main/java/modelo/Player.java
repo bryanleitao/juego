@@ -2,6 +2,12 @@ package modelo;
 
 import java.util.ArrayList;
 
+/**
+ * Esta clase define los atributos que posee el jugador con sus get y set para que sean utilizados por el ServicesPlayer para poder
+ * modificar los mismos.
+ * @author Ezequiel
+ */
+
 public class Player {
 	private String nickname;
 	private int score;

@@ -12,15 +12,27 @@ import modelo.Type;
 import servicio.ServicesPlayer;
 import servicio.ServicesCharacter;
 
-public class Menu {
+/**
+ * Esta clase 
+ * @author Florencia & Bryan
+ */
 
+public class Menu {
+	
 	Scanner sc;
+	/**
+	 * 
+	 * @param p
+	 */
 	public void menuPlayer(Player p) {
 		this.sc =new Scanner(System.in);		
 		System.out.print("Introduzca nickname del Player: ");       
 		p.setNickname(this.sc.nextLine());
 	}
-
+	/**
+	 * 
+	 * @param p
+	 */
 	public void menuType(Player p) {
 		this.sc = new Scanner(System.in);
 		System.out.println("Elija con que tipo de personajes jugara: (a)-SUPERHEROE o (b)-VILLANO: ");
@@ -31,7 +43,13 @@ public class Menu {
 		default: this.menuType(p); break;
 		}
 	}
-
+	/**
+	 * 
+	 * @param p
+	 * @param characters
+	 * @param player
+	 * @return
+	 */
 	public int menuCharacter(Player p, ServicesCharacter characters, ServicesPlayer player) {
 		this.sc = new Scanner(System.in);
 		int option = -1;
@@ -64,6 +82,12 @@ public class Menu {
 	}
 
 	//el main deberia llamar a menuCharacters para la seleccion de personajes
+	/**
+	 * 
+	 * @param p
+	 * @param listaCharacter
+	 * @param player
+	 */
 	public void menuCharacters(Player p, List<Character> listaCharacter, ServicesPlayer player){
 
 		ServicesCharacter characters = new ServicesCharacter();

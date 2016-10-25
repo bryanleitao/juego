@@ -1,5 +1,10 @@
 package modelo;
 
+/**
+ * Esta clase define un enum. Para distinguir los personajes segun el tipo, ya sean SUPERHEROES o VILLANOS.
+ * @author Bryan
+ */
+
 public enum Type {
 	SUPERHEROE ("SUPERHEROE"),
 	VILLANO ("VILLANO");

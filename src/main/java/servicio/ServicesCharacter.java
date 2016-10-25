@@ -9,6 +9,11 @@ import dao.DaoCharacter;
 import modelo.Character;
 import modelo.Type;
 
+/**
+ * Clase que se encarga de las responsabilidades del personaje. 
+ * @author Bryan & Florencia
+ */
+
 public class ServicesCharacter implements IServicesCharacter{
 	
 	private List<Character> characters;
@@ -18,7 +23,9 @@ public class ServicesCharacter implements IServicesCharacter{
 	public ServicesCharacter(){
 		this.setCharacters(DP.getCharacters());
 	}
-	
+	/**
+	 * Metodo que se encarga de listar todos los personajes de DP(DaoCharacter) mostrando el tipo, cualidades y valores de las mismas.
+	 */
 	public void toList() {
 		for(Character p: DP.getCharacters()){
 			System.out.println(p.getName() + " :" + p.getType());
@@ -31,7 +38,9 @@ public class ServicesCharacter implements IServicesCharacter{
 			}
 		}
 	}
-
+	/**
+	 * Metodo que se encarga de listar personajes por tipo mostrando sus cualidades y sus respectivos valores.
+	 */
 	public void toList(Type value) {
 		int i = 1;
 		for(Character p: DP.getCharacters()){
@@ -48,7 +57,13 @@ public class ServicesCharacter implements IServicesCharacter{
 			
 		}
 	}
-// paso por parametro el personaje
+	/**
+	 * Metodo encargado de traer el valor de una cualidad de un personaje.
+	 * @param p Personaje al que se desea obtener el valor de la cualidad.
+	 * @param c	Nombre de la cualidad.
+	 * @return Devuelve el valor de una cualidad y en caso de que no encuentre dicha cualidad retorna -1.
+	 */
+	// paso por parametro el personaje
 	public int getQualityValue (Character p,String c){
 		
 		Iterator<Entry<String, Integer>> it = p.getQualities().entrySet().iterator();
@@ -61,18 +76,25 @@ public class ServicesCharacter implements IServicesCharacter{
 		
 		return -1;
 	}
-	
-	//traigo el personaje q busco por nombre q le paso por parametro
+	/**
+	 * Metodo que se encarga de traer un personaje por el nombre.
+	 */
 	public Character getCharacter(String name){
 		return DP.getCharacter(name);
 	}
-	
-	//traigo el personaje q busco por index que le paso por parámetro y el tipo (Flor)
+	/**
+	 * Metodo que se encarga de traer un personaje por index y tipo.
+	 * @param index Lugar que ocupa un personaje en la lista (ArrayList).
+	 * @param type Tipo de personaje (SUPERHEROE o VILLANO).
+	 * @return Devuelve un personaje.
+	 */
 	public Character getCharacterByIndex(int index, Type type) {
 		return DP.getCharacterByIndex(index, type);
 	}
-	
-	//paso por parametro el objeto personaje y lo muestro: nombre, tipo y cualidades
+	/**
+	 * Metodo que toma un objeto personaje y lo muestra: nmbre, tipo y cualidades.
+	 * @param p Es un personaje.
+	 */
 	public void showCharacter(Character p){
 		System.out.println(p.getName() + " :" + p.getType());
 		
@@ -83,12 +105,14 @@ public class ServicesCharacter implements IServicesCharacter{
 			System.out.println("\t " + qualities.getKey() + " - : " + qualities.getValue());
 		}
 	}
-
+	/**
+	 * Metodo encargado agregar un personaje al DP (DaoCharacter).
+	 */
 	public void create(Character character) {
 		
 		DP.addCharacter(character);
 	}
-
+	
 	public List<Character> getCharacters() {
 		return characters;
 	}

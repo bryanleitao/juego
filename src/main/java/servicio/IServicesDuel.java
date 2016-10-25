@@ -3,6 +3,11 @@ package servicio;
 import modelo.Character;
 import modelo.Player;
 
+/**
+ * Esta interfaz contiene los metodos abstractos que se redefiniran en el ServicioDuel.
+ * @author Ezequiel
+ */
+
 public interface IServicesDuel {
 	
 	//muestra las cualidades del pesonaje

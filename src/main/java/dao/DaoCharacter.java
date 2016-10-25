@@ -6,6 +6,13 @@ import java.util.List;
 import modelo.Character;
 import modelo.Type;
 
+/**
+ * Esta clase es la que tiene los datos de todos los personajes disponibles para jugar. Cada uno de estos esta cargado en un ArrayList
+ * con sus cualidades y los valores de las mismas.
+ * Contiene distintos metodos que permiten manipular dichos personajes.
+ * @author Bryan & Florencia
+ */
+
 public class DaoCharacter {
 
 	private List<Character> characters;
@@ -97,18 +104,28 @@ public class DaoCharacter {
 		
 		addCharacter(newCharacter);
 	}
-	
+	/**
+	 * Metodo que agrega personajes a la lista characters.
+	 * @param character Personaje que puede ser SUPERHEROE o VILLANO y que posee distintas cualidades.
+	 */
 	public void addCharacter(Character character) {
 		
 		this.characters.add(character);
 		
 	}
-	
+	/**
+	 * Metodo para mostrar la lista de todos los personajes.
+	 * @return Devuelve la lista characters.
+	 */
 	public List<Character> getCharacters(){
 		
 		return characters;
 	}
-	
+	/**
+	 * Metodo que levanta personajes de la lista por nombre.
+	 * @param name Nomre del personaje que se encuentra en la lista characters.
+	 * @return Devuelve un personaje por su nombre y en caso de que no se encuentre en la lista de tipo Array devuelve null.
+	 */
 	public Character getCharacter(String name){
 		for( Character aCharacter : characters){
 			if(aCharacter.getName() == name){
@@ -117,7 +134,11 @@ public class DaoCharacter {
 		}
 		return null;
 	}
-	//agregue estos dos metodos
+	/**
+	 * Metodo que genera una lista de tipo Array con personajes de un mismo tipo, ya sea SUPERHEROE o VILLANO.
+	 * @param type Tipo de personaje que es: SUPERHEROE o VILLANO.
+	 * @return Devuelve una lista de tipo Array de personajes de un tipo determinado.
+	 */
 	public List<Character> getCharactersOfType(Type type) {
 		List<Character> charactersOfType = new ArrayList<Character>();
 		for (Character aCharacter: characters) {
@@ -127,7 +148,12 @@ public class DaoCharacter {
 		}
 		return charactersOfType;
 	}
-	
+	/**
+	 * Metodo que levanta un personaje por index y tipo(SUPERHEROE o VILLANO). Se utiliza en la clase Menu.
+	 * @param index Lugar que ocupa un personaje en la lista (ArrayList).
+	 * @param type Tipo de personaje que es: SUPERHEROE o VILLANO.
+	 * @return Devuelve un perdonaje d
+	 */
 	public Character getCharacterByIndex(int index, Type type) {
 		return this.getCharactersOfType(type).get(index);
 	}
