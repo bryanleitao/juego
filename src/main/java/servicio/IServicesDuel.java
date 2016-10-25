@@ -5,7 +5,7 @@ import modelo.Player;
 
 /**
  * Esta interfaz contiene los metodos abstractos que se redefiniran en el ServicioDuel.
- * @author Ezequiel
+ * @author Ezequiel & Florencia
  */
 
 public interface IServicesDuel {
