@@ -8,6 +8,10 @@ import servicio.ServicesDuel;
 import servicio.ServicesPlayer;
 import dao.DaoCharacter;
 
+/**
+ * 
+ * @author Florencia 
+ */
 public class DuelMenu {
 
 	public void displayCharacter(List<Player> players){
@@ -17,10 +21,18 @@ public class DuelMenu {
 	}
 
 	public void showAndChooseQuality(ServicesDuel sd, List<Player> players){
-
+		
+		//personaje p elige cualidad J		
 		//sd.showQualitie(players.get(1));
 	}
+	
+	public void finalScore(ServicesDuel sd, List<Player> players){
+		
+		System.out.println("Los puntajes finales son: ");
+		sd.showScore(players.get(1), players.get(2));
 
+	
+	}
 	//ver quien llega a 2 ptos primero
 	//mostrar ganador
 }
