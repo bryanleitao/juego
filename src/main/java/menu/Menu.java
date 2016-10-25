@@ -1,6 +1,8 @@
 package menu;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 import dao.DaoCharacter;
@@ -30,27 +32,45 @@ public class Menu {
 		}
 	}
 
-	public void menuCharacter(Player p, ServicesCharacter characters, ServicesPlayer player) {
-
+	public int menuCharacter(Player p, ServicesCharacter characters, ServicesPlayer player) {
 		this.sc = new Scanner(System.in);
-		System.out.println("Seleccione el numero del personaje con el que desea jugar:");
-		characters.toList(p.getTypePlayer());
-		
-		int option = this.sc.nextInt();
-		
-		Character character = characters.getCharacterByIndex(option - 1, p.getTypePlayer());
-		
-		if (character != null) {	
-			player.addCharacter(p, character);
-		} else {
-			this.menuCharacter(p, characters, player);
+		int option = -1;
+		Character character = null;
+
+		do{
+			try {
+				System.out.println("Seleccione el numero del personaje con el que desea jugar:");
+				characters.toList(p.getTypePlayer());
+
+				
+				option = this.sc.nextInt();
+
+				character = characters.getCharacterByIndex(option - 1, p.getTypePlayer());
+
+				if (character != null) {	
+					player.addCharacter(p, character);
+					return option;
+				}
+				
+				
+			} catch (IndexOutOfBoundsException e) {
+				// TODO: handle exception
+			} catch (InputMismatchException e) {
+			// TODO: handle exception
 		}
+		}while(character == null);
+
+		return option;
 	}
 
 	//el main deberia llamar a menuCharacters para la seleccion de personajes
-	public void menuCharacters(Player p, ServicesCharacter characters, ServicesPlayer player){
+	public void menuCharacters(Player p, List<Character> listaCharacter, ServicesPlayer player){
+
+		ServicesCharacter characters = new ServicesCharacter();
+		characters.setCharacters(listaCharacter);
+
 		for(int i = 0; i<3; i++){
-			this.menuCharacter(p, characters, player);
+			this.menuCharacter(p,characters, player);
 		}
 	}
 }

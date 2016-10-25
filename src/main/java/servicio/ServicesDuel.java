@@ -45,11 +45,10 @@ public class ServicesDuel implements IServicesDuel{
 	}
 
 	public void incrementScore(Player player) {
-		int newScore=0;
 		
-		newScore=player.getScore()+1;
+		int score = player.getScore();
 		
-		player.setScore(newScore);
+		player.setScore(++score);
 		
 	}
 

@@ -16,7 +16,7 @@ public class ServicesCharacter implements IServicesCharacter{
 	private DaoCharacter DP = new DaoCharacter();
 	
 	public ServicesCharacter(){
-		this.characters = DP.getCharacters();
+		this.setCharacters(DP.getCharacters());
 	}
 	
 	public void toList() {
@@ -87,6 +87,14 @@ public class ServicesCharacter implements IServicesCharacter{
 	public void create(Character character) {
 		
 		DP.addCharacter(character);
+	}
+
+	public List<Character> getCharacters() {
+		return characters;
+	}
+
+	public void setCharacters(List<Character> characters) {
+		this.characters = characters;
 	}
 	
 	

@@ -21,7 +21,6 @@ public class DuelMenu {
 		//sd.showQualitie(players.get(1));
 	}
 
-	public void score(){
-		//sumarle puntaje al jugador? no lo hace eze?
-	}
+	//ver quien llega a 2 ptos primero
+	//mostrar ganador
 }
