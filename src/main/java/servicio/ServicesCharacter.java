@@ -39,6 +39,22 @@ public class ServicesCharacter implements IServicesCharacter{
 		}
 	}
 	/**
+	 * Metodo que se encarga de listar personajes, filtrados en el menu, por tipo mostrando sus cualidades y sus respectivos valores.
+	 */
+	public void toList(Type value,List<Character> c) {
+		int i = 1;
+		for(Character p: c){
+			System.out.println(i++ + ") " + p.getName() + " :" + p.getType());
+			
+			Iterator<Entry<String, Integer>> it = p.getQualities().entrySet().iterator();
+			Entry<String, Integer> qualities;
+			while (it.hasNext()) {
+				qualities = it.next();
+				System.out.println("\t " + qualities.getKey() + " - : " + qualities.getValue());
+			}
+		}
+	}
+	/**
 	 * Metodo que se encarga de listar personajes por tipo mostrando sus cualidades y sus respectivos valores.
 	 */
 	public void toList(Type value) {
@@ -115,6 +131,17 @@ public class ServicesCharacter implements IServicesCharacter{
 	
 	public List<Character> getCharacters() {
 		return characters;
+	}
+	
+	public List<Character> getCharactersByType(Type t) {
+		List<Character> ct = new ArrayList();
+		
+		for(Character c: DP.getCharacters()){
+			if(c.getType() == t){
+				ct.add(c);
+			}
+		}
+		return ct;
 	}
 
 	public void setCharacters(List<Character> characters) {

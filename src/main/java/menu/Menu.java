@@ -18,30 +18,37 @@ import servicio.ServicesCharacter;
  */
 
 public class Menu {
-	
+
 	Scanner sc;
 	/**
 	 * 
 	 * @param p
+	 * @param sc
+	 * @param sp
 	 */
-	public void menuPlayer(Player p) {
+	public void menuPlayer(Player p,ServicesCharacter sc, ServicesPlayer sp) {
 		this.sc =new Scanner(System.in);		
 		System.out.print("Introduzca nickname del Player: ");       
 		p.setNickname(this.sc.nextLine());
+		this.menuType(p,sc,sp);
 	}
 	/**
 	 * 
 	 * @param p
+	 * @param sc
+	 * @param sp
 	 */
-	public void menuType(Player p) {
+	public void menuType(Player p,ServicesCharacter sc, ServicesPlayer sp) {
 		this.sc = new Scanner(System.in);
 		System.out.println("Elija con que tipo de personajes jugara: (a)-SUPERHEROE o (b)-VILLANO: ");
 		String option = this.sc.nextLine();
 		switch (option){
 		case "a": p.setTypePlayer(Type.SUPERHEROE) ; break;
 		case "b": p.setTypePlayer(Type.VILLANO); break;
-		default: this.menuType(p); break;
+		default: this.menuType(p,sc,sp); break;
 		}
+		List<Character> listCharacterByType = sc.getCharactersByType(p.getTypePlayer());
+		this.menuCharacters(p,listCharacterByType,sp);
 	}
 	/**
 	 * 
@@ -54,13 +61,11 @@ public class Menu {
 		this.sc = new Scanner(System.in);
 		int option = -1;
 		Character character = null;
-
 		do{
 			try {
 				System.out.println("Seleccione el numero del personaje con el que desea jugar:");
-				characters.toList(p.getTypePlayer());
+				characters.toList(p.getTypePlayer(),characters.getCharacters());
 
-				
 				option = this.sc.nextInt();
 
 				character = characters.getCharacterByIndex(option - 1, p.getTypePlayer());
@@ -69,19 +74,19 @@ public class Menu {
 					player.addCharacter(p, character);
 					return option;
 				}
-				
-				
+
 			} catch (IndexOutOfBoundsException e) {
-				// TODO: handle exception
-			} catch (InputMismatchException e) {
-			// TODO: handle exception
-		}
+				System.out.println("\nSólo se pueden ingresar números dentro del rango.");			
+			}catch (InputMismatchException e) {
+				System.out.println("\nSólo se pueden ingresar números.");
+				sc.next();			
+			}
 		}while(character == null);
 
 		return option;
 	}
 
-	//el main deberia llamar a menuCharacters para la seleccion de personajes
+	//el main llama a menuCharacters para la seleccion de personajes
 	/**
 	 * 
 	 * @param p
@@ -94,7 +99,8 @@ public class Menu {
 		characters.setCharacters(listaCharacter);
 
 		for(int i = 0; i<3; i++){
-			this.menuCharacter(p,characters, player);
+			listaCharacter.remove(this.menuCharacter(p,characters, player)-1);
+			characters.setCharacters(listaCharacter);
 		}
 	}
 }

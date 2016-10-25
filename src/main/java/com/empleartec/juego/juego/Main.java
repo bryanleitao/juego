@@ -32,9 +32,7 @@ public class Main {
 			List<Player> players = SP.getPlayers();
 			p = players.get(i);
 
-			m.menuPlayer(p);
-			m.menuType(p);
-			m.menuCharacters(p, SC.getCharacters(), SP);
+			m.menuPlayer(p,SC, SP);
 
 		}
 
