@@ -17,9 +17,9 @@ public class ServicesDuel implements IServicesDuel{
 	/**
 	 * Metodo encargado de mostrar las cualidades de un personaje.
 	 */
-	public void showQualitie(Character personaje) {
+	public void showQuality(Character character) {
 		
-		Map<String, Integer> map = personaje.getQualities();
+		Map<String, Integer> map = character.getQualities();
 		
 		for (Entry<String, Integer> entry : map.entrySet())
 		{
@@ -39,7 +39,7 @@ public class ServicesDuel implements IServicesDuel{
 	 * 					1 si la cualidad del personaje del jugador1 es mayor que la del jugador2.
 	 * 					2 si la cualidad del personaje del jugador1 es menor que la del jugador2.
 	 */
-	public int compareQualitie(int qualitieValueA, int qualitieValueB) {
+	public int compareQuality(int qualitieValueA, int qualitieValueB) {
 		
 		int i = -1;
 		
@@ -79,5 +79,5 @@ public class ServicesDuel implements IServicesDuel{
 		
 		return i;
 	}
-
+	
 }

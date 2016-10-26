@@ -22,7 +22,7 @@ public class ServicesPlayer implements IServicesPlayer {
 	List<Player> players = new ArrayList<>();
 	/**
 	 * Metodo que agrega jugadores a una lista.
-	 * @param p Jugador
+	 * @param p Jugador que se agregara a la lista.
 	 */
 	public void addPlayer(Player p){
 		players.add(p);

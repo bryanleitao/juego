@@ -13,7 +13,7 @@ import servicio.ServicesPlayer;
 import servicio.ServicesCharacter;
 
 /**
- * Esta clase 
+ * Esta clase es la que se encarga de la etapa inicial del juego, pide el ingreso de los datos del Player.
  * @author Florencia & Bryan
  */
 
@@ -21,19 +21,19 @@ public class Menu {
 
 	Scanner sc;
 	/**
-	 * 
-	 * @param p
+	 * Metodo que se encarga de preguntar al usuario el nickname.
+	 * @param p 
 	 * @param sc
 	 * @param sp
 	 */
 	public void menuPlayer(Player p,ServicesCharacter sc, ServicesPlayer sp) {
 		this.sc =new Scanner(System.in);		
-		System.out.print("Introduzca nickname del Player: ");       
+		System.out.print("Introduzca nickname del Jugador: ");       
 		p.setNickname(this.sc.nextLine());
 		this.menuType(p,sc,sp);
 	}
 	/**
-	 * 
+	 * Metodo que permite la eleccion del tipo de personajes (SUPERHEROE o VILLANO).
 	 * @param p
 	 * @param sc
 	 * @param sp
@@ -51,11 +51,11 @@ public class Menu {
 		this.menuCharacters(p,listCharacterByType,sp);
 	}
 	/**
-	 * 
-	 * @param p
-	 * @param characters
-	 * @param player
-	 * @return
+	 * Metodo que lista personajes por tipo y le permite al jugador la eleccion del personaje con el que desea jugar.
+	 * @param p 
+	 * @param characters 
+	 * @param player 
+	 * @return Devuelve el personaje elegido por el jugador.
 	 */
 	public int menuCharacter(Player p, ServicesCharacter characters, ServicesPlayer player) {
 		this.sc = new Scanner(System.in);
@@ -85,12 +85,10 @@ public class Menu {
 
 		return option;
 	}
-
-	//el main llama a menuCharacters para la seleccion de personajes
 	/**
-	 * 
+	 * Metodo encargado de eliminar los personajes ya elegidos y de guardar los 3 personajes finales del jugador.
 	 * @param p
-	 * @param listaCharacter
+	 * @param listaCharacter 
 	 * @param player
 	 */
 	public void menuCharacters(Player p, List<Character> listaCharacter, ServicesPlayer player){

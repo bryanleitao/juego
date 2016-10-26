@@ -79,7 +79,6 @@ public class ServicesCharacter implements IServicesCharacter{
 	 * @param c	Nombre de la cualidad.
 	 * @return Devuelve el valor de una cualidad y en caso de que no encuentre dicha cualidad retorna -1.
 	 */
-	// paso por parametro el personaje
 	public int getQualityValue (Character p,String c){
 		
 		Iterator<Entry<String, Integer>> it = p.getQualities().entrySet().iterator();
@@ -109,7 +108,7 @@ public class ServicesCharacter implements IServicesCharacter{
 	}
 	/**
 	 * Metodo que toma un objeto personaje y lo muestra: nmbre, tipo y cualidades.
-	 * @param p Es un personaje.
+	 * @param p Personaje que se mostrara.
 	 */
 	public void showCharacter(Character p){
 		System.out.println(p.getName() + " :" + p.getType());
@@ -132,7 +131,11 @@ public class ServicesCharacter implements IServicesCharacter{
 	public List<Character> getCharacters() {
 		return characters;
 	}
-	
+	/**
+	 * Metodo encargado de guardar en una lista los personajes del mismo tipo.
+	 * @param t Tipo de personaje (SUPERHEROE o VILLANO).
+	 * @return Devuelve una lista con personajes del mismo tipo.
+	 */
 	public List<Character> getCharactersByType(Type t) {
 		List<Character> ct = new ArrayList();
 		
