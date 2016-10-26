@@ -48,7 +48,7 @@ public class Main {
 
 		while(next){
 
-			if((p1.getScore()!= 2) || (p2.getScore()!= 2)){// no funciona esta validacion
+			if((p1.getScore()!= 2) && (p2.getScore()!= 2)){// no funciona esta validacion
 				if(turno == 0){
 					dm.displayCharacter(p1, SD, turno);
 				}else{

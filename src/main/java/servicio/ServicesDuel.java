@@ -30,8 +30,9 @@ public class ServicesDuel implements IServicesDuel{
 	/**
 	 * Metodo que se encarga de mostrar el puntaje(score) de los jugadores.
 	 */
-	public void showScore(Player player1, Player player2) {
-		System.out.println("Puntaje Jugador 1: "+ player1.getScore() + "  //  Puntaje Jugador 2: "+ player2.getScore());
+	public void showScore(Player p1, Player p2) {
+		System.out.println("Puntaje Jugador "+ p1.getNickname() +": "+ p1.getScore() 
+					   + "\nPuntaje Jugador "+ p2.getNickname() +": "+ p2.getScore());
 	}
 	/**
 	 * Metodo que se encarga de comparar la misma cualidad del personaje del jugadorA con el jugadorB.

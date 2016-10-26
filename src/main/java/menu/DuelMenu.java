@@ -61,10 +61,10 @@ public class DuelMenu {
 	 * @param sd
 	 * @param players
 	 */
-	public void finalScore(ServicesDuel score, List<Player> players){
+	public void finalScore(ServicesDuel SD, List<Player> players){
 
 		System.out.println("Los puntajes finales son: ");
-		score.showScore(players.get(1), players.get(2));
+		SD.showScore(players.get(0), players.get(1));
 
 
 	}
