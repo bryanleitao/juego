@@ -62,7 +62,8 @@ public class ServicesDuel implements IServicesDuel{
 	 * Metodo que se encarga de comparar el puntaje de los jugadores.
 	 * @param player1 Jugador1.
 	 * @param player2 Jugador2.
-	 * @return Devuelve 1 o 2 dependiendo de que jugador tiene mayor puntaje:
+	 * @return Devuelve 0, 1 o 2 dependiendo de que jugador tiene mayor puntaje:
+	 * 					0- si ambos jugadores tienen el mismo puntaje.
 	 * 					1- si el jugador1 tiene mayor puntaje.
 	 * 					2- si el jugador2 tiene mayor puntaje.
 	 */
@@ -70,6 +71,9 @@ public class ServicesDuel implements IServicesDuel{
 		
 		int i= -1;
 		
+		if(player1.getScore() == player2.getScore()){
+			i=0;
+		}
 		if(player1.getScore() > player2.getScore()){
 			i=1;
 		}
