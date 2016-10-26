@@ -46,6 +46,7 @@ public class DuelMenu {
 			case "f": quality.compareQuality(c1.getQualityValue(A, "Fuerza"), c2.getQualityValue(B, "Fuerza")); break;
 			case "v": quality.compareQuality(c1.getQualityValue(A, "Velocidad"), c2.getQualityValue(B, "Velocidad")); break;
 			case "i": quality.compareQuality(c1.getQualityValue(A, "Inteligencia"), c2.getQualityValue(B, "Inteligencia")); break;
+			default: this.chooseQuality(quality, c1, c2, A, B); break;
 		}
 		
 }
