@@ -40,13 +40,18 @@ public class Menu {
 	 */
 	public void menuType(Player p,ServicesCharacter sc, ServicesPlayer sp) {
 		this.sc = new Scanner(System.in);
-		System.out.println("Elija con que tipo de personajes jugara: (a)-SUPERHEROE o (b)-VILLANO: ");
-		String option = this.sc.nextLine();
-		switch (option){
-		case "a": p.setTypePlayer(Type.SUPERHEROE) ; break;
-		case "b": p.setTypePlayer(Type.VILLANO); break;
-		default: this.menuType(p,sc,sp); break;
-		}
+		String option = "";
+		
+		do{
+			System.out.println("Elija con que tipo de personajes jugara: (a)-SUPERHEROE o (b)-VILLANO: ");
+			option = this.sc.nextLine();
+			switch (option){
+			case "a": p.setTypePlayer(Type.SUPERHEROE) ; break;
+			case "b": p.setTypePlayer(Type.VILLANO); break;
+			default: System.out.println("Opcion no reconocida"); option = "error"; break;
+			}
+		}while (option == "error");
+		
 		List<Character> listCharacterByType = sc.getCharactersByType(p.getTypePlayer());
 		this.menuCharacters(p,listCharacterByType,sp);
 	}
@@ -68,8 +73,7 @@ public class Menu {
 
 				option = this.sc.nextInt();
 
-				character = characters.getCharacterByIndex(option - 1, p.getTypePlayer());
-
+				character = characters.getCharacters().get(option-1);
 				if (character != null) {	
 					player.addCharacter(p, character);
 					return option;

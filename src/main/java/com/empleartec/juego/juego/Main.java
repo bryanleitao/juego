@@ -1,11 +1,13 @@
 package com.empleartec.juego.juego;
 
 import servicio.ServicesCharacter;
+import servicio.ServicesDuel;
 import servicio.ServicesPlayer;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import menu.DuelMenu;
 import menu.Menu;
 
 import modelo.Player;
@@ -18,8 +20,10 @@ public class Main {
 
 		ServicesCharacter SC = new ServicesCharacter();
 		ServicesPlayer SP = new ServicesPlayer();
-
+		ServicesDuel SD = new ServicesDuel();
+		
 		Menu m = new Menu();
+		DuelMenu dm = new DuelMenu();
 
 		Player p = new Player();
 		SP.addPlayer(p);

@@ -42,6 +42,7 @@ public class DuelMenu {
 					
 		System.out.println("Elija la cualidad con la que desea atacar: (f)-FUERZA, (v)-VELOCIDAD o (i)-INTELIGENCIA");
 		String option = this.sc.nextLine();
+		
 		switch (option){
 			case "f": quality.compareQuality(c1.getQualityValue(A, "Fuerza"), c2.getQualityValue(B, "Fuerza")); break;
 			case "v": quality.compareQuality(c1.getQualityValue(A, "Velocidad"), c2.getQualityValue(B, "Velocidad")); break;
