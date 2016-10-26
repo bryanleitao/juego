@@ -80,4 +80,8 @@ public class ServicesDuel implements IServicesDuel{
 		return i;
 	}
 	
+	public void duel(){
+		
+	}
+	
 }
