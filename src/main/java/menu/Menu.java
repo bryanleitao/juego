@@ -28,7 +28,7 @@ public class Menu {
 	 */
 	public void menuPlayer(Player p,ServicesCharacter sc, ServicesPlayer sp) {
 		this.sc =new Scanner(System.in);		
-		System.out.print("Introduzca nickname del Jugador: ");       
+		System.out.print("\nIntroduzca nickname del Jugador: ");       
 		p.setNickname(this.sc.nextLine());
 		this.menuType(p,sc,sp);
 	}
@@ -43,7 +43,7 @@ public class Menu {
 		String option = "";
 		
 		do{
-			System.out.println("Elija con que tipo de personajes jugara: (a)-SUPERHEROE o (b)-VILLANO: ");
+			System.out.println("\nElija con que tipo de personajes jugara: (a)-SUPERHEROE o (b)-VILLANO: ");
 			option = this.sc.nextLine();
 			switch (option){
 			case "a": p.setTypePlayer(Type.SUPERHEROE) ; break;
@@ -68,7 +68,7 @@ public class Menu {
 		Character character = null;
 		do{
 			try {
-				System.out.println("Seleccione el numero del personaje con el que desea jugar:");
+				System.out.println("\nSeleccione el numero del personaje con el que desea jugar:");
 				characters.toList(p.getTypePlayer(),characters.getCharacters());
 
 				option = this.sc.nextInt();

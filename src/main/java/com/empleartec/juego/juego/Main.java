@@ -4,14 +4,12 @@ import servicio.ServicesCharacter;
 import servicio.ServicesDuel;
 import servicio.ServicesPlayer;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import menu.DuelMenu;
 import menu.Menu;
 
 import modelo.Player;
-import modelo.Type;
 
 public class Main {
 
@@ -43,7 +41,7 @@ public class Main {
 		Player p1 = SP.getPlayers().get(0);
 		Player p2 = SP.getPlayers().get(1);
 		int turno = 0;
-		int result = 0;
+		int result = -1;
 		boolean next = true;
 
 		while(next){
@@ -58,20 +56,19 @@ public class Main {
 						dm.displayCharacter(p1, SD, turno);
 					}
 				}
-				result = dm.chooseQuality(SD, SC, p1.getCharacters().get(turno), p2.getCharacters().get(turno));
-				
-				if(turno == 2){//contemplar como las reglas del truco, ver mas adelante,
-					//en caso de q en la 3er partida haya empate, gana el que gano en la primer partida
+				do{
 					if(result == 0){
-						result = 1;
+						System.out.println("\nElija otra cualidad!");
 					}
-					
-				}
-				
+					result = dm.chooseQuality(SD, SC, p1.getCharacters().get(turno), p2.getCharacters().get(turno));
+				}while(result == 0);
+
 				switch(result){
 				case 1 : SP.modifyScore(p1); break;
 				case 2 : SP.modifyScore(p2); break;
 				}
+
+				SD.showScore(p1, p2);
 				turno++;	
 			}else{
 				next = false;
@@ -79,6 +76,14 @@ public class Main {
 
 		}
 
-		dm.finalScore(SD, SP.getPlayers());
+		int ganador = SD.compareScore(SP.getPlayers().get(0), SP.getPlayers().get(1));
+
+		if (ganador == 1){
+			System.out.println("\nel ganador es: " + SP.getPlayers().get(0).getNickname());	
+		}else{
+			System.out.println("\nel ganador es: " + SP.getPlayers().get(1).getNickname());
+		}
+
+
 	}
 }

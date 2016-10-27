@@ -86,7 +86,7 @@ public class ServicesDuel implements IServicesDuel{
 	}
 	
 	public void duel(){
-		
+		//ver si se puede poner todo lo relacionado a las batallas del main aca
 	}
 	
 }
