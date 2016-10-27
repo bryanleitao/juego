@@ -40,19 +40,19 @@ public class ServicesDuel implements IServicesDuel{
 	 * 					1 si la cualidad del personaje del jugador1 es mayor que la del jugador2.
 	 * 					2 si la cualidad del personaje del jugador1 es menor que la del jugador2.
 	 */
-	public int compareQuality(int qualitieValueA, int qualitieValueB) {
+	public int compareQuality(int qualityValueA, int qualityValueB) {
 		
 		int i = -1;
 		
-		if (qualitieValueA==qualitieValueB){
+		if (qualityValueA==qualityValueB){
 			i = 0;
 		}
 		
-		if (qualitieValueA>qualitieValueB){
+		if (qualityValueA>qualityValueB){
 			i =  1;
 		}
 		
-		if (qualitieValueA<qualitieValueB){
+		if (qualityValueA<qualityValueB){
 			i = 2;
 		}
 		

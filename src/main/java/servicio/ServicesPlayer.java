@@ -3,13 +3,10 @@ package servicio;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Scanner;
 import java.util.Map.Entry;
 
 import modelo.Character;
 import modelo.Player;
-import modelo.Type;
-import servicio.ServicesCharacter;
 
 /**
  * Clase encargada de definir las responsabilidades del Servicio de usuario (ServicesPlayer) que sera la encargada de modificar los 

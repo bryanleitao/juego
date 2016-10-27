@@ -7,7 +7,6 @@ import modelo.Character;
 import modelo.Player;
 import servicio.ServicesCharacter;
 import servicio.ServicesDuel;
-import servicio.ServicesPlayer;
 
 /**
  * Esta clase es la que se encarga del desarrollo del juego. Pide al jugador la seleccion de cualidades al luchar y se encarga de los
@@ -17,16 +16,40 @@ import servicio.ServicesPlayer;
 public class DuelMenu {
 
 	Scanner sc;
-
+	
+	public void gameRules(){
+		System.out.println("The league of cards");
+		System.out.println("\nReglas del juego: A cada jugador se le permitira la eleccion de un bando(Heroe o Villano) y de tres " +
+				"personajes\nque seran con los que se enfrentaran." +
+				"\nLa batalla consiste en que el jugador de turno elija una habilidad del personaje con el cual va a luchar,\n" +
+				"dichas habilidades pueden ser Fuerza, Velocidad e Inteligencia, las cuales se compararan con las del\n" +
+				"personaje del otro jugador para determinar el ganador de la ronda." +
+				"\nEl mejor de 3 rondas gana. Cada battalla da 1pto en caso de victoria y en caso de empate se debera elegir otra\n" +
+				"habilidad para compararla nuevamente." +
+				"\nPara comenzar ingrese alguna letra.");
+		this.sc.nextLine();
+	}
 	/**
-	 * Metodo que se encarga de mostrar el personaje para luchar en cada turno.
+	 * Metodo que se encarga de mostrar el personaje que ataca.
 	 *@param p Jugador que esta de turno.
 	 * @param sd servicio de duelo, se usa para traer la cualidad del personaje del turno i.
 	 * @param i Turno de juego: puede ser 1, 2 o 3.
 	 */
 	public void displayCharacter(Player p, ServicesDuel sd, int i){
-		this.sc =new Scanner(System.in);
+		this.sc = new Scanner(System.in);													//esta linea no esta de mas?
 		System.out.println(p.getNickname() + " ataca con " + p.getCharacters().get(i).getName());
+		sd.showQuality(p.getCharacters().get(i));
+
+	}
+	/**
+	 * Metodo que se encarga de mostrar el personaje que defiende.
+	 *@param p Jugador que esta de turno.
+	 * @param sd servicio de duelo, se usa para traer la cualidad del personaje del turno i.
+	 * @param i Turno de juego: puede ser 1, 2 o 3.
+	 */
+	public void displayCharacterB(Player p, ServicesDuel sd, int i){
+		this.sc = new Scanner(System.in);													//esta linea no esta de mas?
+		System.out.println(p.getNickname() + " defiende con " + p.getCharacters().get(i).getName());
 		sd.showQuality(p.getCharacters().get(i));
 
 	}
