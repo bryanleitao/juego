@@ -16,7 +16,7 @@ import servicio.ServicesDuel;
 public class DuelMenu {
 
 	Scanner sc;
-	
+
 	public void gameRules(){
 		System.out.println("The league of cards");
 		System.out.println("\nReglas del juego: A cada jugador se le permitira la eleccion de un bando(Heroe o Villano) y de tres " +
@@ -67,7 +67,7 @@ public class DuelMenu {
 		String option = "";
 		option = this.sc.nextLine();
 		int resultado = 0;
-		
+
 		do{
 			switch (option){
 			case "f": resultado = sd.compareQuality(sc.getQualityValue(A, "Fuerza"), sc.getQualityValue(B, "Fuerza")); break;
@@ -76,7 +76,7 @@ public class DuelMenu {
 			default: System.out.println("Opcion no reconocida"); option = "error"; break;
 			}
 		}while (option == "error");
-		
+
 		return resultado;
 	}
 	/**
@@ -86,9 +86,14 @@ public class DuelMenu {
 	 */
 	public void finalScore(ServicesDuel SD, List<Player> players){
 
-		System.out.println("Los puntajes finales son: ");
+		System.out.println("\nLos puntajes finales son: ");
 		SD.showScore(players.get(0), players.get(1));
 
-
+		int ganador = SD.compareScore(players.get(0),players.get(1));
+		if (ganador == 1){
+			System.out.println("\nel ganador es: " + players.get(0).getNickname());	
+		}else{
+			System.out.println("\nel ganador es: " + players.get(1).getNickname());
+		}
 	}
 }

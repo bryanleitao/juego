@@ -46,7 +46,7 @@ public class Main {
 
 		while(next){
 
-			if((p1.getScore()!= 2) && (p2.getScore()!= 2)){// no funciona esta validacion
+			if((p1.getScore()!= 2) && (p2.getScore()!= 2)){
 				if(turno == 0){
 					dm.displayCharacter(p1, SD, turno);
 				}else{
@@ -75,15 +75,7 @@ public class Main {
 			}
 
 		}
-
-		int ganador = SD.compareScore(SP.getPlayers().get(0), SP.getPlayers().get(1));
-
-		if (ganador == 1){
-			System.out.println("\nel ganador es: " + SP.getPlayers().get(0).getNickname());	
-		}else{
-			System.out.println("\nel ganador es: " + SP.getPlayers().get(1).getNickname());
-		}
-
-
+		dm.finalScore(SD, SP.getPlayers());
+		
 	}
 }
