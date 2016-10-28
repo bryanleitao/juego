@@ -16,9 +16,6 @@ public class ServicesDuelTest {
 	@Spy
 	private ServicesDuel service = new ServicesDuel();
 	
-	/**
-	 * Test del metodo compareQuality();
-	 */
 	@Test
 	public void compareQualityTestCaseA() {
 		int result = service.compareQuality(250, 250);
@@ -37,10 +34,6 @@ public class ServicesDuelTest {
 		
 		assertEquals(2, result);		
 	}
-	
-	/**
-	 * Test del metodo compareScore();
-	 */
 	
 	@Test
 	public void compareScoreTestCaseA() {

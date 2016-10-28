@@ -48,7 +48,7 @@ public class DuelMenu {
 	 * @param i Turno de juego: puede ser 1, 2 o 3.
 	 */
 	public void displayCharacterB(Player p, ServicesDuel sd, int i){
-		System.out.println(p.getNickname() + " se defiende con " + p.getCharacters().get(i).getName() + " con la misma habilidad");
+		System.out.println(p.getNickname() + " se defiende con " + p.getCharacters().get(i).getName() + " usando la misma habilidad");
 		sd.showQuality(p.getCharacters().get(i));
 
 	}
