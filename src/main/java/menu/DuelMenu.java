@@ -16,18 +16,20 @@ import servicio.ServicesDuel;
 public class DuelMenu {
 
 	Scanner sc;
-
+	
 	public void gameRules(){
-		System.out.println("The league of cards");
-		System.out.println("\nReglas del juego: A cada jugador se le permitira la eleccion de un bando(Heroe o Villano) y de tres " +
+		System.out.println("The League of Cards");
+		System.out.println("\nReglas del juego: A cada jugador se le permitira la eleccion de un bando(Superheroe o Villano) y de tres " +
 				"personajes\nque seran con los que se enfrentaran." +
 				"\nLa batalla consiste en que el jugador de turno elija una habilidad del personaje con el cual va a luchar,\n" +
 				"dichas habilidades pueden ser Fuerza, Velocidad e Inteligencia, las cuales se compararan con las del\n" +
 				"personaje del otro jugador para determinar el ganador de la ronda." +
 				"\nEl mejor de 3 rondas gana. Cada battalla da 1pto en caso de victoria y en caso de empate se debera elegir otra\n" +
-				"habilidad para compararla nuevamente." +
-				"\nPara comenzar ingrese alguna letra.");
-		this.sc.nextLine();
+				"habilidad para compararla nuevamente. Ingrese [help] para saber los comandos validos" +
+				"\n\n----Toca enter para continuar.----");
+		this.sc = new Scanner(System.in);
+		String option = this.sc.nextLine();
+		
 	}
 	/**
 	 * Metodo que se encarga de mostrar el personaje que ataca.
@@ -35,9 +37,9 @@ public class DuelMenu {
 	 * @param sd servicio de duelo, se usa para traer la cualidad del personaje del turno i.
 	 * @param i Turno de juego: puede ser 1, 2 o 3.
 	 */
-	public void displayCharacter(Player p, ServicesDuel sd, int i){
+	public void displayCharacterA(Player p, ServicesDuel sd, int i){
 		this.sc = new Scanner(System.in);			//esta linea no esta de mas?
-		System.out.println(p.getNickname() + " ataca con " + p.getCharacters().get(i).getName());
+		System.out.println(p.getNickname() + " ataca con " + p.getCharacters().get(i).getName()+ ":");
 		sd.showQuality(p.getCharacters().get(i));
 
 	}
@@ -63,16 +65,20 @@ public class DuelMenu {
 	 */
 	public int chooseQuality(ServicesDuel sd, ServicesCharacter sc, Character A, Character B){
 
-		System.out.println("Elija la cualidad con la que desea atacar: (f)-FUERZA, (v)-VELOCIDAD o (i)-INTELIGENCIA");
+		System.out.println("Elija la cualidad con la que desea atacar:");
 		String option = "";
 		option = this.sc.nextLine();
+		option = option.toLowerCase();
 		int resultado = 0;
 
 		do{
 			switch (option){
-			case "f": resultado = sd.compareQuality(sc.getQualityValue(A, "Fuerza"), sc.getQualityValue(B, "Fuerza")); break;
-			case "v": resultado = sd.compareQuality(sc.getQualityValue(A, "Velocidad"), sc.getQualityValue(B, "Velocidad")); break;
-			case "i": resultado = sd.compareQuality(sc.getQualityValue(A, "Inteligencia"), sc.getQualityValue(B, "Inteligencia")); break;
+			case "fuerza": resultado = sd.compareQuality(sc.getQualityValue(A, "Fuerza"), sc.getQualityValue(B, "Fuerza")); break;
+			case "velocidad": resultado = sd.compareQuality(sc.getQualityValue(A, "Velocidad"), sc.getQualityValue(B, "Velocidad")); break;
+			case "inteligencia": resultado = sd.compareQuality(sc.getQualityValue(A, "Inteligencia"), sc.getQualityValue(B, "Inteligencia")); break;
+			case "help": System.out.println("FUERZA - VELOCIDAD - INTELIGENCIA"); 
+			option = this.sc.nextLine();
+			option = option.toLowerCase();break;
 			default: System.out.println("Opcion no reconocida"); option = "error"; break;
 			}
 		}while (option == "error");

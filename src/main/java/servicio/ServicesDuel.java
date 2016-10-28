@@ -23,7 +23,7 @@ public class ServicesDuel implements IServicesDuel{
 		
 		for (Entry<String, Integer> entry : map.entrySet())
 		{
-		    System.out.println("Cualidad: " + entry.getKey() + " - Valor: " + entry.getValue());
+		    System.out.println("\t" + entry.getKey() + " = " + entry.getValue());
 		}
 		
 	}

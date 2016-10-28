@@ -4,7 +4,10 @@ import servicio.ServicesCharacter;
 import servicio.ServicesDuel;
 import servicio.ServicesPlayer;
 
+import java.io.Console;
 import java.util.List;
+
+import javax.swing.SingleSelectionModel;
 
 import menu.DuelMenu;
 import menu.Menu;
@@ -27,6 +30,7 @@ public class Main {
 		SP.addPlayer(p);
 		p = new Player();
 		SP.addPlayer(p);
+		dm.gameRules();
 
 		//configuracion de los Jugadores y sus personajes
 		for(int i = 0 ; i<2 ; i++  ){
@@ -36,7 +40,7 @@ public class Main {
 
 			m.menuPlayer(p,SC, SP);
 		}
-
+		System.out.println("\n---------------Duelo----------------\n");
 		//Duelo
 		Player p1 = SP.getPlayers().get(0);
 		Player p2 = SP.getPlayers().get(1);
@@ -44,38 +48,41 @@ public class Main {
 		int result = -1;
 		boolean next = true;
 
+		Player actualPlayer = p1;
+		Player otherPlayer = p2;
+		SP.changePlayer(actualPlayer, otherPlayer);
+
 		while(next){
 
 			if((p1.getScore()!= 2) && (p2.getScore()!= 2)){
-				if(turno == 0){
-					dm.displayCharacter(p1, SD, turno);
-				}else{
-					if(result == 1){
-						dm.displayCharacter(p2, SD, turno);
-					}else{
-						dm.displayCharacter(p1, SD, turno);
-					}
-				}
+
+				dm.displayCharacterA(actualPlayer, SD, turno);
+
 				do{
 					if(result == 0){
 						System.out.println("\nElija otra cualidad!");
 					}
-					result = dm.chooseQuality(SD, SC, p1.getCharacters().get(turno), p2.getCharacters().get(turno));
+					result = dm.chooseQuality(SD, SC, actualPlayer.getCharacters().get(turno), otherPlayer.getCharacters().get(turno));
+					dm.displayCharacterB(otherPlayer, SD, turno);
+					System.out.println("\n---------------Fight----------------\n");
 				}while(result == 0);
 
 				switch(result){
-				case 1 : SP.modifyScore(p1); break;
-				case 2 : SP.modifyScore(p2); break;
+				case 1 : SP.modifyScore(actualPlayer);
+				Player aux = actualPlayer; actualPlayer = otherPlayer; otherPlayer = aux;
+				break;
+				case 2 : SP.modifyScore(otherPlayer); 
+				break;
 				}
-
 				SD.showScore(p1, p2);
+					System.out.println("\n------------------------------------\n");
 				turno++;	
 			}else{
 				next = false;
 			}
-
 		}
+
 		dm.finalScore(SD, SP.getPlayers());
-		
+
 	}
 }

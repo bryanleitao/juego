@@ -51,6 +51,15 @@ public class ServicesPlayer implements IServicesPlayer {
 		p.setScore(p.getScore()+1);
 	}
 	/**
+	 * Metodo que cambia de lugar los jugadores.
+	 * @param a, b son los jugadores que se van a intercambiar.
+	 */
+	public void changePlayer(Player a, Player b){
+		Player aux = a;
+		a = b;
+		b = aux;
+	}
+	/**
 	 * Metodo encargado de mostrar por pantalla los datos de un jugador : nickname, score y los nombres de los personajes que posee
 	 * con sus cualidades y valores de las mismas.
 	 */

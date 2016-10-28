@@ -28,7 +28,7 @@ public class ServicesCharacter implements IServicesCharacter{
 	 */
 	public void toList() {
 		for(Character p: DP.getCharacters()){
-			System.out.println(p.getName() + " :" + p.getType());
+			System.out.println(p.getName() + " - " + p.getType());
 			
 			Iterator<Entry<String, Integer>> it = p.getQualities().entrySet().iterator();
 			Entry<String, Integer> qualities;
@@ -44,13 +44,13 @@ public class ServicesCharacter implements IServicesCharacter{
 	public void toList(Type value,List<Character> c) {
 		int i = 1;
 		for(Character p: c){
-			System.out.println(i++ + ") " + p.getName() + " :" + p.getType());
+			System.out.println(i++ + ") " + p.getName() + " - " + p.getType());
 			
 			Iterator<Entry<String, Integer>> it = p.getQualities().entrySet().iterator();
 			Entry<String, Integer> qualities;
 			while (it.hasNext()) {
 				qualities = it.next();
-				System.out.println("\t " + qualities.getKey() + " - : " + qualities.getValue());
+				System.out.println("\t " + qualities.getKey() + " = " + qualities.getValue());
 			}
 		}
 	}
@@ -61,13 +61,13 @@ public class ServicesCharacter implements IServicesCharacter{
 		int i = 1;
 		for(Character p: DP.getCharacters()){
 			if(p.getType() == value){
-				System.out.println(i++ + ") " + p.getName() + " :" + p.getType());
+				System.out.println(i++ + ") " + p.getName() + " - " + p.getType());
 				
 				Iterator<Entry<String, Integer>> it = p.getQualities().entrySet().iterator();
 				Entry<String, Integer> qualities;
 				while (it.hasNext()) {
 					qualities = it.next();
-					System.out.println("\t " + qualities.getKey() + " - : " + qualities.getValue());
+					System.out.println("\t " + qualities.getKey() + " = " + qualities.getValue());
 				}
 			}
 			
@@ -111,13 +111,13 @@ public class ServicesCharacter implements IServicesCharacter{
 	 * @param p Personaje que se mostrara.
 	 */
 	public void showCharacter(Character p){
-		System.out.println(p.getName() + " :" + p.getType());
+		System.out.println(p.getName() + " - " + p.getType());
 		
 		Iterator<Entry<String, Integer>> it = p.getQualities().entrySet().iterator();
 		Entry<String, Integer> qualities;
 		while (it.hasNext()) {
 			qualities = it.next();
-			System.out.println("\t " + qualities.getKey() + " - : " + qualities.getValue());
+			System.out.println("\t" + qualities.getKey() + " = " + qualities.getValue());
 		}
 	}
 	/**

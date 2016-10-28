@@ -28,7 +28,7 @@ public class Menu {
 	 */
 	public void menuPlayer(Player p,ServicesCharacter sc, ServicesPlayer sp) {
 		this.sc =new Scanner(System.in);		
-		System.out.print("\nIntroduzca nickname del Jugador: ");       
+		System.out.print("\nIntroduzca nombre del Jugador: ");       
 		p.setNickname(this.sc.nextLine());
 		this.menuType(p,sc,sp);
 	}
@@ -43,11 +43,15 @@ public class Menu {
 		String option = "";
 		
 		do{
-			System.out.println("\nElija con que tipo de personajes jugara: (a)-SUPERHEROE o (b)-VILLANO: ");
+			System.out.println("\nElija con que tipo de personajes jugara:");
 			option = this.sc.nextLine();
+			option = option.toLowerCase();
 			switch (option){
-			case "a": p.setTypePlayer(Type.SUPERHEROE) ; break;
-			case "b": p.setTypePlayer(Type.VILLANO); break;
+			case "superheroe": p.setTypePlayer(Type.SUPERHEROE) ; break;
+			case "villano": p.setTypePlayer(Type.VILLANO); break;
+			case "help": System.out.println("SUPERHEROE - VILLANO");
+			option = this.sc.nextLine();
+			option = option.toLowerCase(); break;
 			default: System.out.println("Opcion no reconocida"); option = "error"; break;
 			}
 		}while (option == "error");
