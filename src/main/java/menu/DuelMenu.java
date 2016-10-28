@@ -22,13 +22,10 @@ public class DuelMenu {
 	}
 	public void gameRules(){
 		System.out.println("The League of Cards");
-		System.out.println("\nReglas del juego: A cada jugador se le permitira la eleccion de un bando(Superheroe o Villano) y de tres " +
-				"personajes\nque seran con los que se enfrentaran." +
-				"\nLa batalla consiste en que el jugador de turno elija una habilidad del personaje con el cual va a luchar,\n" +
-				"dichas habilidades pueden ser Fuerza, Velocidad e Inteligencia, las cuales se compararan con las del\n" +
-				"personaje del otro jugador para determinar el ganador de la ronda." +
-				"\nEl mejor de 3 rondas gana. Cada battalla da 1pto en caso de victoria y en caso de empate se debera elegir otra\n" +
-				"habilidad para compararla nuevamente. Ingrese [help] para saber los comandos validos" +
+		System.out.println("\nEn un mundo donde los villanos y superheroes pelean entre si deberas elegir con quien quieres luchar. "
+				+ "\nTendras que seleccionar tres cartas, que representan a distintos superheroes o villanos, estas tienen 3 habilidades distintas."
+				+ "\nA la hora de combatir deberas elegir una habilidad por cada carta y el que tenga el puntaje mayor en la misma, ganara la batalla, pero no la guerra."
+				+ "\nEl vencedor sera el jugador que tenga dos de tres batallas ganadas. Ingrese [help] para saber los comandos permitidos" +
 				"\n\n----Toca enter para continuar.----");
 		String option = this.sc.nextLine();
 		
@@ -40,7 +37,7 @@ public class DuelMenu {
 	 * @param i Turno de juego: puede ser 1, 2 o 3.
 	 */
 	public void displayCharacterA(Player p, ServicesDuel sd, int i){
-		System.out.println(p.getNickname() + " ataca con " + p.getCharacters().get(i).getName()+ ":");
+		System.out.println(p.getNickname() + " atacara con " + p.getCharacters().get(i).getName()+ ":");
 		sd.showQuality(p.getCharacters().get(i));
 
 	}
@@ -51,7 +48,7 @@ public class DuelMenu {
 	 * @param i Turno de juego: puede ser 1, 2 o 3.
 	 */
 	public void displayCharacterB(Player p, ServicesDuel sd, int i){
-		System.out.println(p.getNickname() + " defiende con " + p.getCharacters().get(i).getName() + " con la misma habilidad");
+		System.out.println(p.getNickname() + " se defiende con " + p.getCharacters().get(i).getName() + " con la misma habilidad");
 		sd.showQuality(p.getCharacters().get(i));
 
 	}
@@ -69,7 +66,7 @@ public class DuelMenu {
 		int resultado = 0;
 
 		do{
-			System.out.println("Elija la cualidad con la que desea atacar:");
+			System.out.println("Elige la habilidad con la que deseas atacar:");
 			option = this.sc.nextLine();
 			option = option.toLowerCase();
 			
@@ -78,7 +75,7 @@ public class DuelMenu {
 			case "velocidad": resultado = sd.compareQuality(sc.getQualityValue(A, "Velocidad"), sc.getQualityValue(B, "Velocidad")); break;
 			case "inteligencia": resultado = sd.compareQuality(sc.getQualityValue(A, "Inteligencia"), sc.getQualityValue(B, "Inteligencia")); break;
 			case "help": System.out.println("FUERZA - VELOCIDAD - INTELIGENCIA"); option = "error"; break;
-			default: System.out.println("Opcion no reconocida"); option = "error"; break;
+			default: System.out.println("Opcion no reconocida, ingresa help para ver las opciones disponibles."); option = "error"; break;
 			}
 		}while (option == "error");
 
@@ -96,9 +93,9 @@ public class DuelMenu {
 
 		int ganador = SD.compareScore(players.get(0),players.get(1));
 		if (ganador == 1){
-			System.out.println("\nel ganador es: " + players.get(0).getNickname());	
+			System.out.println("\nEl ganador es: " + players.get(0).getNickname());	
 		}else{
-			System.out.println("\nel ganador es: " + players.get(1).getNickname());
+			System.out.println("\nEl ganador es: " + players.get(1).getNickname());
 		}
 	}
 }

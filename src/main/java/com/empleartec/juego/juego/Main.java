@@ -33,14 +33,17 @@ public class Main {
 		dm.gameRules();
 
 		//configuracion de los Jugadores y sus personajes
+		System.out.println("\n---------------VAMO A COMENZAR!!!----------------\n");
 		for(int i = 0 ; i<2 ; i++  ){
 
 			List<Player> players = SP.getPlayers();
 			p = players.get(i);
-
+			if(i == 1){
+				System.out.println("Ahora es el turno de tu oponente.");
+			}
 			m.menuPlayer(p,SC, SP);
 		}
-		System.out.println("\n---------------Duelo----------------\n");
+		System.out.println("\n---------------A PELEAR!!!----------------\n");
 		//Duelo
 		Player p1 = SP.getPlayers().get(0);
 		Player p2 = SP.getPlayers().get(1);
