@@ -20,6 +20,12 @@ import servicio.ServicesCharacter;
 public class Menu {
 
 	Scanner sc;
+	private void resetScanner(){
+		this.sc = new Scanner(System.in);
+	}
+	public Menu(){
+		this.sc =new Scanner(System.in);
+	}
 	/**
 	 * Metodo que se encarga de preguntar al usuario el nickname.
 	 * @param p 
@@ -27,9 +33,10 @@ public class Menu {
 	 * @param sp
 	 */
 	public void menuPlayer(Player p,ServicesCharacter sc, ServicesPlayer sp) {
-		this.sc =new Scanner(System.in);		
-		System.out.print("\nIntroduzca nombre del Jugador: ");       
-		p.setNickname(this.sc.nextLine());
+		resetScanner();
+		System.out.print("\nIntroduzca nombre del Jugador: "); 
+		String name = this.sc.nextLine();
+		p.setNickname(name);
 		this.menuType(p,sc,sp);
 	}
 	/**
@@ -39,9 +46,8 @@ public class Menu {
 	 * @param sp
 	 */
 	public void menuType(Player p,ServicesCharacter sc, ServicesPlayer sp) {
-		this.sc = new Scanner(System.in);
-		String option = "";
-		
+		String option;
+		resetScanner();
 		do{
 			System.out.println("\nElija con que tipo de personajes jugara:");
 			option = this.sc.nextLine();
@@ -49,9 +55,7 @@ public class Menu {
 			switch (option){
 			case "superheroe": p.setTypePlayer(Type.SUPERHEROE) ; break;
 			case "villano": p.setTypePlayer(Type.VILLANO); break;
-			case "help": System.out.println("SUPERHEROE - VILLANO");
-			option = this.sc.nextLine();
-			option = option.toLowerCase(); break;
+			case "help": System.out.println("SUPERHEROE - VILLANO"); option = "error"; break;
 			default: System.out.println("Opcion no reconocida"); option = "error"; break;
 			}
 		}while (option == "error");
@@ -67,8 +71,8 @@ public class Menu {
 	 * @return Devuelve el personaje elegido por el jugador.
 	 */
 	public int menuCharacter(Player p, ServicesCharacter characters, ServicesPlayer player) {
-		this.sc = new Scanner(System.in);
 		int option = -1;
+		resetScanner();
 		Character character = null;
 		do{
 			try {

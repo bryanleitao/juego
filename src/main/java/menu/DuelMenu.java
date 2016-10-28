@@ -1,5 +1,6 @@
 package menu;
 
+import java.lang.reflect.Constructor;
 import java.util.List;
 import java.util.Scanner;
 
@@ -16,7 +17,9 @@ import servicio.ServicesDuel;
 public class DuelMenu {
 
 	Scanner sc;
-	
+	public DuelMenu(){
+		this.sc = new Scanner(System.in);
+	}
 	public void gameRules(){
 		System.out.println("The League of Cards");
 		System.out.println("\nReglas del juego: A cada jugador se le permitira la eleccion de un bando(Superheroe o Villano) y de tres " +
@@ -27,7 +30,6 @@ public class DuelMenu {
 				"\nEl mejor de 3 rondas gana. Cada battalla da 1pto en caso de victoria y en caso de empate se debera elegir otra\n" +
 				"habilidad para compararla nuevamente. Ingrese [help] para saber los comandos validos" +
 				"\n\n----Toca enter para continuar.----");
-		this.sc = new Scanner(System.in);
 		String option = this.sc.nextLine();
 		
 	}
@@ -38,7 +40,6 @@ public class DuelMenu {
 	 * @param i Turno de juego: puede ser 1, 2 o 3.
 	 */
 	public void displayCharacterA(Player p, ServicesDuel sd, int i){
-		this.sc = new Scanner(System.in);			//esta linea no esta de mas?
 		System.out.println(p.getNickname() + " ataca con " + p.getCharacters().get(i).getName()+ ":");
 		sd.showQuality(p.getCharacters().get(i));
 
@@ -50,7 +51,6 @@ public class DuelMenu {
 	 * @param i Turno de juego: puede ser 1, 2 o 3.
 	 */
 	public void displayCharacterB(Player p, ServicesDuel sd, int i){
-		this.sc = new Scanner(System.in);			//esta linea no esta de mas?
 		System.out.println(p.getNickname() + " defiende con " + p.getCharacters().get(i).getName() + " con la misma habilidad");
 		sd.showQuality(p.getCharacters().get(i));
 
@@ -65,20 +65,19 @@ public class DuelMenu {
 	 */
 	public int chooseQuality(ServicesDuel sd, ServicesCharacter sc, Character A, Character B){
 
-		System.out.println("Elija la cualidad con la que desea atacar:");
 		String option = "";
-		option = this.sc.nextLine();
-		option = option.toLowerCase();
 		int resultado = 0;
 
 		do{
+			System.out.println("Elija la cualidad con la que desea atacar:");
+			option = this.sc.nextLine();
+			option = option.toLowerCase();
+			
 			switch (option){
 			case "fuerza": resultado = sd.compareQuality(sc.getQualityValue(A, "Fuerza"), sc.getQualityValue(B, "Fuerza")); break;
 			case "velocidad": resultado = sd.compareQuality(sc.getQualityValue(A, "Velocidad"), sc.getQualityValue(B, "Velocidad")); break;
 			case "inteligencia": resultado = sd.compareQuality(sc.getQualityValue(A, "Inteligencia"), sc.getQualityValue(B, "Inteligencia")); break;
-			case "help": System.out.println("FUERZA - VELOCIDAD - INTELIGENCIA"); 
-			option = this.sc.nextLine();
-			option = option.toLowerCase();break;
+			case "help": System.out.println("FUERZA - VELOCIDAD - INTELIGENCIA"); option = "error"; break;
 			default: System.out.println("Opcion no reconocida"); option = "error"; break;
 			}
 		}while (option == "error");
