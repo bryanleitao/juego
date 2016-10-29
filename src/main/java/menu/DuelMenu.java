@@ -54,13 +54,12 @@ public class DuelMenu {
 	}
 	/**
 	 * Metodo que le permite al jugador seleccionar la cualidadad con la que desea luchar.
-	 * @param quality Cualidad de personaje.
-	 * @param A Personaje A del jugador p1.
-	 * @param B Personaje B del jugador p2.
-	 * @param c1 
-	 * @param c2 
+	 * @param A Personaje A.
+	 * @param B Personaje B.
+	 * @param schar controlador del personaje  
+	 * @param sd controlador del duelo 
 	 */
-	public int chooseQuality(ServicesDuel sd, ServicesCharacter sc, Character A, Character B){
+	public int chooseQuality(ServicesDuel sd, ServicesCharacter schar, Character A, Character B){
 
 		String option = "";
 		int resultado = 0;
@@ -71,9 +70,9 @@ public class DuelMenu {
 			option = option.toLowerCase();
 			
 			switch (option){
-			case "fuerza": resultado = sd.compareQuality(sc.getQualityValue(A, "Fuerza"), sc.getQualityValue(B, "Fuerza")); break;
-			case "velocidad": resultado = sd.compareQuality(sc.getQualityValue(A, "Velocidad"), sc.getQualityValue(B, "Velocidad")); break;
-			case "inteligencia": resultado = sd.compareQuality(sc.getQualityValue(A, "Inteligencia"), sc.getQualityValue(B, "Inteligencia")); break;
+			case "fuerza": resultado = sd.compareQuality(schar.getQualityValue(A, "Fuerza"), schar.getQualityValue(B, "Fuerza")); break;
+			case "velocidad": resultado = sd.compareQuality(schar.getQualityValue(A, "Velocidad"), schar.getQualityValue(B, "Velocidad")); break;
+			case "inteligencia": resultado = sd.compareQuality(schar.getQualityValue(A, "Inteligencia"), schar.getQualityValue(B, "Inteligencia")); break;
 			case "help": System.out.println("FUERZA - VELOCIDAD - INTELIGENCIA"); option = "error"; break;
 			default: System.out.println("Opcion no reconocida, ingresa help para ver las opciones disponibles."); option = "error"; break;
 			}
@@ -83,15 +82,15 @@ public class DuelMenu {
 	}
 	/**
 	 * Metodo encargado de mostrar los puntajes finales.
-	 * @param sd
-	 * @param players
+	 * @param sd controlador del duelo
+	 * @param players lista de jugadores en combate
 	 */
-	public void finalScore(ServicesDuel SD, List<Player> players){
+	public void finalScore(ServicesDuel sd, List<Player> players){
 
 		System.out.println("\nLos puntajes finales son: ");
-		SD.showScore(players.get(0), players.get(1));
+		sd.showScore(players.get(0), players.get(1));
 
-		int ganador = SD.compareScore(players.get(0),players.get(1));
+		int ganador = sd.compareScore(players.get(0),players.get(1));
 		if (ganador == 1){
 			System.out.println("\nEl ganador es: " + players.get(0).getNickname());	
 		}else{

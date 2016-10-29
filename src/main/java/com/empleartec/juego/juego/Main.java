@@ -22,7 +22,7 @@ public class Main {
 		ServicesCharacter SC = new ServicesCharacter();
 		ServicesPlayer SP = new ServicesPlayer();
 		ServicesDuel SD = new ServicesDuel();
-
+		
 		Menu m = new Menu();
 		DuelMenu dm = new DuelMenu();
 
@@ -33,7 +33,7 @@ public class Main {
 		dm.gameRules();
 
 		//configuracion de los Jugadores y sus personajes
-		System.out.println("\n---------------VAMO A COMENZAR!!!----------------\n");
+		System.out.println("\n---------------VAMOS A COMENZAR!!!----------------\n");
 		for(int i = 0 ; i<2 ; i++  ){
 
 			List<Player> players = SP.getPlayers();
@@ -77,8 +77,11 @@ public class Main {
 				case 2 : SP.modifyScore(otherPlayer); 
 				break;
 				}
-				SD.showScore(p1, p2);
-					System.out.println("\n------------------------------------\n");
+				if (turno != 2){
+					SD.showScore(p1, p2);
+					System.out.println("\n------------------------------------\n");	
+				}
+
 				turno++;	
 			}else{
 				next = false;

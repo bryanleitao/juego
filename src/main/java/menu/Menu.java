@@ -28,24 +28,24 @@ public class Menu {
 	}
 	/**
 	 * Metodo que se encarga de preguntar al usuario el nickname.
-	 * @param p 
-	 * @param sc
-	 * @param sp
+	 * @param p jugador.
+	 * @param sc controladora del personaje.
+	 * @param sp controladora del jugador.
 	 */
-	public void menuPlayer(Player p,ServicesCharacter sc, ServicesPlayer sp) {
+	public void menuPlayer(Player p,ServicesCharacter schar, ServicesPlayer sp) {
 		resetScanner();
 		System.out.print("\nEscribe tu nombre: "); 
 		String name = this.sc.nextLine();
 		p.setNickname(name);
-		this.menuType(p,sc,sp);
+		this.menuType(p,schar,sp);
 	}
 	/**
 	 * Metodo que permite la eleccion del tipo de personajes (SUPERHEROE o VILLANO).
-	 * @param p
-	 * @param sc
-	 * @param sp
+	 * @param p jugador.
+	 * @param schar controladora del personaje.
+	 * @param sp controladora del jugador.
 	 */
-	public void menuType(Player p,ServicesCharacter sc, ServicesPlayer sp) {
+	public void menuType(Player p,ServicesCharacter schar, ServicesPlayer sp) {
 		String option;
 		resetScanner();
 		do{
@@ -60,30 +60,30 @@ public class Menu {
 			}
 		}while (option == "error");
 		
-		List<Character> listCharacterByType = sc.getCharactersByType(p.getTypePlayer());
+		List<Character> listCharacterByType = schar.getCharactersByType(p.getTypePlayer());
 		this.menuCharacters(p,listCharacterByType,sp);
 	}
 	/**
 	 * Metodo que lista personajes por tipo y le permite al jugador la eleccion del personaje con el que desea jugar.
-	 * @param p 
-	 * @param characters 
-	 * @param player 
+	 * @param p jugador
+	 * @param schar controladora del personaje 
+	 * @param sp controladora del jugador 
 	 * @return Devuelve el personaje elegido por el jugador.
 	 */
-	public int menuCharacter(Player p, ServicesCharacter characters, ServicesPlayer player) {
+	public int menuCharacter(Player p, ServicesCharacter schar, ServicesPlayer sp) {
 		int option = -1;
 		resetScanner();
 		Character character = null;
 		do{
 			try {
 				System.out.println("\nSelecciona el numero del personaje con el que deseas jugar:");
-				characters.toList(p.getTypePlayer(),characters.getCharacters());
+				schar.toList(p.getTypePlayer(),schar.getCharacters());
 
 				option = this.sc.nextInt();
 
-				character = characters.getCharacters().get(option-1);
+				character = schar.getCharacters().get(option-1);
 				if (character != null) {	
-					player.addCharacter(p, character);
+					sp.addCharacter(p, character);
 					return option;
 				}
 
@@ -99,17 +99,17 @@ public class Menu {
 	}
 	/**
 	 * Metodo encargado de eliminar los personajes ya elegidos y de guardar los 3 personajes finales del jugador.
-	 * @param p
-	 * @param listaCharacter 
-	 * @param player
+	 * @param p jugador
+	 * @param listCharacter lista de caracteres
+	 * @param sp controladora del jugador
 	 */
-	public void menuCharacters(Player p, List<Character> listaCharacter, ServicesPlayer player){
+	public void menuCharacters(Player p, List<Character> listaCharacter, ServicesPlayer sp){
 
 		ServicesCharacter characters = new ServicesCharacter();
 		characters.setCharacters(listaCharacter);
 
 		for(int i = 0; i<3; i++){
-			listaCharacter.remove(this.menuCharacter(p,characters, player)-1);
+			listaCharacter.remove(this.menuCharacter(p,characters, sp)-1);
 			characters.setCharacters(listaCharacter);
 		}
 	}
